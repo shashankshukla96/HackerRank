@@ -1,0 +1,12 @@
+def checkBST(root):
+    listIn = []
+    def inorder(node):
+        if node.data:
+            if node.left:
+                inorder(node.left)
+            listIn.append(node.data)
+            if node.right:
+                inorder(node.right)
+        return listIn
+    inorder_list = inorder(root)
+    return sorted(list(set(inorder_list))) == inorder_list
