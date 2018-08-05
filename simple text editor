@@ -1,0 +1,19 @@
+s = ""
+st = []
+for _ in range(int(input())):
+    inp = input()
+    if inp[0] == "1":
+        inp = inp.split()
+        st.append(s)
+        s = s + inp[1]
+    elif inp[0] == "2":
+        st.append(s)
+        inp = inp.split()
+        k = int(inp[1])
+        s = s[:(len(s)-k)]
+    elif inp[0] == "3":
+        inp = inp.split()
+        k = int(inp[1])
+        print(s[k-1])
+    elif inp[0] == "4":
+        s = st.pop()
