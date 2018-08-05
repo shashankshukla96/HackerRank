@@ -1,0 +1,6 @@
+def calcul(num):
+    return num if len(num) == 1 else calcul(str(sum([int(x) for x in num])))
+
+a = input()
+n, k = a.split()
+print(calcul(calcul(n) * int(k)))
