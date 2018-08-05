@@ -1,0 +1,30 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+# Complete the makeAnagram function below.
+def makeAnagram(a, b):
+    d = dict(Counter(a))
+    e = dict(Counter(b))
+    c = 0
+    for k, v in d.items():
+        if k in e:
+            c += min(v, e[k])
+    
+    return len(a)+len(b)-2*c
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = input()
+
+    b = input()
+
+    res = makeAnagram(a, b)
+
+    fptr.write(str(res) + '\n')
+
+    fptr.close()
