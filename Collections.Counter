@@ -1,0 +1,11 @@
+from collections import Counter
+n = int(input())
+a = list(map(int, input().strip().split()))
+c = dict(Counter(a))
+m = 0
+for _ in range(int(input())):
+    i = list(map(int, input().split()))
+    if i[0] in c.keys() and c[i[0]] != 0:
+        c[i[0]] -= 1
+        m += i[1]
+print(m)
