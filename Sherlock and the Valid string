@@ -1,0 +1,42 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+# Complete the isValid function below.
+def isValid(s):
+    a = dict(Counter(s))
+    v = list(a.values())
+    maxm = max(v)
+    minm = min(v)
+    max_count = v.count(maxm)
+    min_count = v.count(minm)
+    print(v)
+    if maxm == minm:
+        return "YES"
+    elif max_count > 1 and min_count > 1:
+        return "NO"
+    elif minm == 1 and min_count == 1:
+        v.remove(minm)
+        if max(v) == min(v):
+            return "YES"
+    elif abs(maxm-minm) == 1 and max_count == 1:
+        return "YES"
+    
+    return "NO"
+      
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = isValid(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
