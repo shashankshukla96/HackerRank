@@ -1,0 +1,34 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def check(i):
+    d = len(str(i))
+    sq = str(i*i)
+    m = len(sq)
+
+    a = m-d
+    if sq[:a]:
+        l = int(sq[:a])
+    else:
+        l = 0
+    r = int(sq[a:])
+
+    if i == (l+r):
+        print(i, end=" ")
+
+# Complete the kaprekarNumbers function below.
+def kaprekarNumbers(p, q):
+    for i in range(p, q+1):
+        check(i)
+
+if __name__ == '__main__':
+    p = int(input())
+
+    q = int(input())
+
+    kaprekarNumbers(p, q)
